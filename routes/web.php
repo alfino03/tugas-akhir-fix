@@ -16,3 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@client');
 Route::get('/home', 'HomeController@client')->name('home');
 Route::get('/admin', 'AdminController@admin');
+
+Route::resource('admin/produk','ProdukController');
+Route::resource('admin/brand','BrandController');
+Route::resource('admin/member','MemberController');
+Route::resource('admin/lokasi','LokasiController');
