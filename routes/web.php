@@ -15,4 +15,13 @@
 Auth::routes();
 Route::get('/', 'HomeController@client');
 Route::get('/home', 'HomeController@client')->name('home');
+Route::get('/produk', function () {
+    return view('produk');
+});
+Route::get('/brand', function () {
+    return view('brand');
+});
+Route::get('/lokasi', function () {
+    return view('lokasi');
+});
 Route::get('/admin', 'AdminController@admin');
