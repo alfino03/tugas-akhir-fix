@@ -25,3 +25,8 @@ Route::get('/lokasi', function () {
     return view('lokasi');
 });
 Route::get('/admin', 'AdminController@admin');
+
+Route::resource('admin/produk','ProdukController');
+Route::resource('admin/brand','BrandController');
+Route::resource('admin/member','MemberController');
+Route::resource('admin/lokasi','LokasiController');

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -8,37 +9,72 @@
             <h1>Dashboard Admin</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
       </div>
-      <!-- /.card -->
+</section>
 
-    </section>
-    <!-- /.content -->
-    @endsection
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">          
+            <p>Produk</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="{{ route('produk.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+          <div class="inner">          
+            <p>Brand</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-bag"></i>
+          </div>
+          <a href="{{ route('brand.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">        
+            <p>Member</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+          <a href="{{ url('admin/member') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-secondary">
+          <div class="inner">
+            <p>Lokasi</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="{{ url('admin/lokasi') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.content -->
+
+@endsection

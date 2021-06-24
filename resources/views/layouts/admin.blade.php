@@ -23,7 +23,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="{{ url('/admin') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -67,7 +67,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{{ url('/admin') }}" class="brand-link">
       <img src="/layout-template/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Tukuemas</span>
     </a>
@@ -89,32 +89,30 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview ">
+            <a href="{{ url('/admin') }}" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
-            </a>
+            </a>  
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('produk.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>
-                Produk
-              </p>
+              <p>Produk</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('brand.index') }}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Kategori
+                Brand
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/member') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Member
@@ -122,14 +120,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/lokasi') }}" class="nav-link">
               <i class="nav-icon fas fa-map-pin"></i>
               <p>
                 Lokasi
               </p>
             </a>
           </li>
-        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
