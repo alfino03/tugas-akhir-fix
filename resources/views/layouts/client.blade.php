@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/layout-template/css/style.css">
   <link rel="stylesheet" href="/layout-template/css/produk.css">
   <link rel="stylesheet" href="/layout-template/css/profile.css">
+  <link rel="stylesheet" href="/layout-template/css/custom-tampilan.css">
 
   <!-- fa -->
   <link rel="stylesheet" href="/layout-template/fontawesome-free/css/all.min.css">
@@ -21,13 +22,20 @@
       vertical-align: top;
       margin-left: -0.8em;
     }
+
+    .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    }
+    
   </style>
   <title>Tukuemas</title>
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container">
       <!-- Left navbar links -->
       <a class="navbar-brand" href="/home">
@@ -45,12 +53,28 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a class="nav-link" href="/produk">Produk</a>
           </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a class="nav-link" href="/brand">Brand</a>
+          <li class="nav-item dropdown d-none d-sm-inline-block">
+
+            <?php
+            use App\Models\Lokasi;
+            $lokasi = Lokasi::all();
+            ?>
+
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#">Atur Lokasi</a>
+              <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
+              @foreach($lokasi as $l)
+              <a class="dropdown-item" href="{{route('produk.atur_lokasi', $l->slug)}}">{{$l->nama_lokasi}}</a>
+              @endforeach
+              </div>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a class="nav-link" href="/lokasi">Atur Lokasi</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
+          @if(Auth::user())
+          <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link btn btn-outline-warning btn-sm" href="{{route('jualemas.create')}}">Jual Emas</a>
+          </li>
+          @endif
 
         </ul>
 
@@ -181,8 +205,9 @@
   <script src="/layout-template/js/jquery.js"></script>
   <script src="/layout-template/js/popper.min.js"></script>
   <script src="/layout-template/js/bootstrap.min.js"></script>
-
+  
   @yield('scripts')
 </body>
 
 </html>
+

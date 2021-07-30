@@ -14,8 +14,16 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $users= User::all();
+        $users= User::paginate(10);
         return view('admin.member',compact('users'));
+    }
+
+    public function destroy($id)
+    {
+        $users = User::find($id);
+
+        $users->delete();
+        return redirect()->route('member.index')->with('sukses','Data Brand Berhasil Dihapus');
     }
 
 }

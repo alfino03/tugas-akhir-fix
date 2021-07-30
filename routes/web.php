@@ -15,18 +15,20 @@
 Auth::routes();
 Route::get('/', 'HomeController@client');
 Route::get('/home', 'HomeController@client')->name('home');
-Route::get('/produk', function () {
-    return view('produk');
-});
-Route::get('/brand', function () {
-    return view('brand');
-});
-Route::get('/lokasi', function () {
-    return view('lokasi');
-});
+
 Route::get('/admin', 'AdminController@admin');
 
 Route::resource('admin/produk','ProdukController');
 Route::resource('admin/brand','BrandController');
 Route::resource('admin/member','MemberController');
 Route::resource('admin/lokasi','LokasiController');
+
+Route::get('/produk','ProdukClientController@client');
+Route::get('/produk/brand/{brand_id}','ProdukClientController@showBrand')->name('produk.show_brand');
+Route::get('/produk/{id}','ProdukClientController@showDetail')->name('produk.show_detail');
+Route::get('/produk/beli/{id}','ProdukClientController@beliSekarang')->name('produk.beli_sekarang');
+Route::get('/produk/lokasi/{lokasi_id}','ProdukClientController@aturLokasi')->name('produk.atur_lokasi');
+
+Route::resource('client/jualemas','JualEmasController');
+
+Route::get('/about', 'AboutController@index');

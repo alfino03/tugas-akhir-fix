@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\Produk;
+use App\Models\Lokasi;
+use App\User;
 use File;
+use Auth;
 
 class ProdukController extends Controller
 {
@@ -16,9 +19,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produk = Produk::all();
+        $produk = Produk::paginate(10);
         $brand = Brand::all();
-        
+
         return view('admin.produk.index',compact('produk','brand'));
     }
 
@@ -30,7 +33,8 @@ class ProdukController extends Controller
     public function create()
     {
         $brand = Brand::all();
-        return view('admin.produk.create',compact('brand'));
+        $lokasi = Lokasi::all();
+        return view('admin.produk.create',compact('brand','lokasi'));
     }
     
     /**
@@ -41,15 +45,19 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'nama_produk'=> 'required',
             'brand_id'=> 'required',
             'stok'=> 'required',
             'deskripsi'=> 'required',
-            'lokasi'=> 'required',
+            'harga'=> 'required',
+            'lokasi_id'=> 'required',
             'foto_produk' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
      
+        $userId = Auth::user()->id;
+        
         $foto = $request->file('foto_produk');
         $nama_foto = time()."_".$foto->getClientOriginalName();
         $foto->move('img/produk',$nama_foto);
@@ -57,9 +65,11 @@ class ProdukController extends Controller
         Produk::create([
             'nama_produk' => $request->nama_produk,
             'brand_id' => $request->brand_id,
+            'user_id' => $userId,
             'stok' => $request->stok,
             'deskripsi' => $request->deskripsi,
-            'lokasi' => $request->lokasi,
+            'harga'=> $request->harga,
+            'lokasi_id' => $request->lokasi_id,
             'foto_produk' => $nama_foto
         ]);
 
@@ -87,7 +97,8 @@ class ProdukController extends Controller
     {
         $produk = Produk::find($id);
         $brand = Brand::all();
-        return view('admin.produk.edit',compact('produk','brand'));
+        $lokasi = Lokasi::all();
+        return view('admin.produk.edit',compact('produk','brand','lokasi'));
     }
 
     /**
@@ -105,7 +116,8 @@ class ProdukController extends Controller
             'brand_id'=> 'required',
             'stok'=> 'required',
             'deskripsi'=> 'required',
-            'lokasi'=> 'required',
+            'harga'=> 'required',
+            'lokasi_id'=> 'required',
             'foto_produk' => 'file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 

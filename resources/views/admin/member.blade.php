@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row mb-1">
           <div class="col-sm-6">
             <h1>Member</h1>
           </div>
@@ -15,19 +15,22 @@
 <!-- Main content -->
 <section class="content">
   <div class="table table-responsive">
-    <table id="produkTable" class="table table-bordered table-hover">
-      <tr class="text-center">
-        <th>No.</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>Jenis Kelamin</th>
-        <th>Alamat</th>
-        <th>No. HP</th>
-        <th>Aksi</th>
-      </tr>
-      @foreach ($users as $u)
+    <table id="produkTable" class="table table-bordered table-hover styled-table">
+      <thead>
+        <tr class="text-center">
+          <th>No.</th>
+          <th>Nama</th>
+          <th>Email</th>
+          <th>Jenis Kelamin</th>
+          <th>Alamat Lengkap</th>
+          <th>No. HP</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+
+      @foreach ($users as $key => $u)
       <tr>
-      <td class="text-center">{{ $loop->iteration }}</td>
+      <td class="text-center">{{ $users->firstItem() + $key }}</td>
         <td>{{ $u->name }}</td>
         <td>{{$u->email}}</td>
         <td>{{$u->jenis_kelamin}}</td>
@@ -35,9 +38,6 @@
         <td>{{$u->no_hp}}</td>
         <td class="text-center">
           <form action="{{ route('member.destroy',$u->id) }}" method="POST">
-            <a href="{{ route('member.edit',$u->id) }}" class="btn btn-success btn-sm mr-3 mb-1"><i
-                class="fa fa-edit"></i>
-              Edit</a>
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-sm mr-3" onclick="return confirm('Hapus Data?');"><i
@@ -47,8 +47,19 @@
       </tr>
       @endforeach
     </table>
+    <div>
+      Showing 
+      {{$users->firstItem()}} 
+      to 
+      {{$users->lastItem()}} 
+      of 
+      {{$users->total()}} 
+      entries
+    </div>
+    <div class="float-right">
+    {{ $users->links() }}
+    </div>
   </div>
-
 </section>
 <!-- end Main content -->
 

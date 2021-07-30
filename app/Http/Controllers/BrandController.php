@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Brand;
 
 class BrandController extends Controller
@@ -14,7 +15,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand = Brand::all();
+        $brand = Brand::paginate(10);
         return view('admin.brand.index',compact('brand'));
     }
 
@@ -41,7 +42,8 @@ class BrandController extends Controller
         ]);
 
         Brand::create([
-            'nama' => $request->nama
+            'nama' => $request->nama,
+            'slug' => Str::slug($request->nama, '-')
         ]);
 
         return redirect()->route('brand.index')->with('sukses', 'Data Brand Berhasil Ditambahkan');

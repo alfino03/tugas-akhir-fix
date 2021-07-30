@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
+
+  <!-- css custom --> 
+  <link rel="stylesheet" href="/layout-template/css/custom-tampilan.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -80,7 +83,10 @@
           <img src="/adminlte/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          @if(Auth::user())
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          @else
+          @endif
         </div>
       </div>
 

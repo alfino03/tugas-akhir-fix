@@ -17,13 +17,17 @@ class CreateProduksTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama_produk', 100);
             $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('stok', 100);
             $table->text('deskripsi');
-            $table->string('lokasi', 100);
+            $table->integer('harga');
+            $table->unsignedBigInteger('lokasi_id');
             $table->string('foto_produk', 100);
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brand');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('lokasi_id')->references('id')->on('lokasi');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function client()
     {
-        return view('client.index');
+        $produk = Produk::latest()->paginate(4);
+        // $produk = Produk::all();
+
+        return view('client.index',compact('produk'));
+        
     }
 }

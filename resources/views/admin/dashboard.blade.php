@@ -19,8 +19,16 @@
     <div class="row">
       <div class="col-lg-6 col-6">
         <!-- small box -->
-        <div class="small-box bg-warning">
-          <div class="inner">          
+        <div class="small-box bg-success">
+          <div class="inner">
+          <?php
+              $produk = \App\Models\Produk::count();
+            ?>
+            @if(!empty($produk))
+            <h3>{{$produk}}</h3>
+            @else
+            <h3>0</h3>
+            @endif          
             <p>Produk</p>
           </div>
           <div class="icon">
@@ -33,7 +41,15 @@
       <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-primary">
-          <div class="inner">          
+          <div class="inner">
+          <?php
+              $brand = \App\Models\Brand::count();
+            ?>
+            @if(!empty($brand))
+            <h3>{{$brand}}</h3>
+            @else
+            <h3>0</h3>
+            @endif          
             <p>Brand</p>
           </div>
           <div class="icon">
@@ -50,7 +66,15 @@
       <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
-          <div class="inner">        
+          <div class="inner">
+          <?php
+              $users = \App\User::count();
+            ?>
+            @if(!empty($users))
+            <h3>{{$users}}</h3>
+            @else
+            <h3>0</h3>
+            @endif        
             <p>Member</p>
           </div>
           <div class="icon">
@@ -64,6 +88,14 @@
         <!-- small box -->
         <div class="small-box bg-secondary">
           <div class="inner">
+          <?php
+              $lokasi = \App\Models\Lokasi::count();
+            ?>
+            @if(!empty($lokasi))
+            <h3>{{$lokasi}}</h3>
+            @else
+            <h3>0</h3>
+            @endif
             <p>Lokasi</p>
           </div>
           <div class="icon">

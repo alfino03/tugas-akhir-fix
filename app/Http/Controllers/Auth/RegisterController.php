@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'jenis_kelamin' => ['required', 'string', 'max:255'],
             'alamat' => ['required', 'string', 'max:255'],
-            'no_hp' => ['required', 'string', 'max:12'],
+            'no_hp' => ['required', 'string', 'max:13'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,12 +67,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $noHP = $data['no_hp'];
+        $formatNoHP = substr($noHP,1);
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'jenis_kelamin' => $data['jenis_kelamin'],
             'alamat' => $data['alamat'],
-            'no_hp' =>$data['no_hp'],
+            'no_hp' => '+62'.$formatNoHP,
             'password' => Hash::make($data['password']),
         ]);
     }

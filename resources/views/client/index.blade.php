@@ -1,10 +1,5 @@
 @extends('layouts.client')
 @section('konten')
-@if(session('sukses'))
-<div class="alert alert-success">
-  {{session('sukses')}}
-</div>
-@endif
 
 <!-- carousel -->
 <div id="test" class="carousel slide bg-light" data-ride="carousel">
@@ -75,7 +70,35 @@
 <!-- / alur -->
 
 <!-- produk -->
-
+<section>
+  <div class="container">
+    <h3 class="sec-title">Produk </h3>
+    <div class="row">
+      @foreach ($produk as $p)
+        <div class="col-md-3 col-sm-12 mt-4">
+          <div class="card" style="width: 15rem;">
+            <img src="{{ asset('img/produk/'.$p->foto_produk) }}" alt="foto" width="80px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ $p->nama_produk }}</h5>
+              <p class="card-text">
+                <strong>Stok : </strong> {{$p->stok}} <br>
+                <strong>Harga : </strong>Rp. {{number_format($p->harga)}} <br>
+                <hr>
+                {{$p->user->name}}, {{$p->lokasi->nama_lokasi}}
+              </p>
+              <a href="{{route('produk.beli_sekarang',$p->id)}}" class="btn btn-warning"><i class="fas fa-shopping-cart"></i> Beli</a>
+              <a href="{{route('produk.show_detail',$p->id)}}" class="btn btn-warning"><i class="fas fa-info-circle"></i> Detail</a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+    <br>
+    <a href="/produk" class="nav-item nav-link text-secondary float-right">
+    Lihat Semua Produk <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+  </div>
+</section>
 <!-- end produk -->
 
 <!-- tentang kami -->
