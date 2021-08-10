@@ -16,12 +16,19 @@ Auth::routes();
 Route::get('/', 'HomeController@client');
 Route::get('/home', 'HomeController@client')->name('home');
 
-Route::get('/admin', 'AdminController@admin');
+Route::middleware('admin','auth')->group(function() {
 
-Route::resource('admin/produk','ProdukController');
-Route::resource('admin/brand','BrandController');
-Route::resource('admin/member','MemberController');
-Route::resource('admin/lokasi','LokasiController');
+    Route::get('/admin', 'AdminController@admin');
+
+    Route::resource('admin/produk','ProdukController');
+    Route::resource('admin/brand','BrandController');
+    Route::resource('admin/member','MemberController');
+    Route::resource('admin/lokasi','LokasiController');
+
+
+});
+
+Route::get('home/editprofile','EditProfileController@index');
 
 Route::get('/produk','ProdukClientController@client');
 Route::get('/produk/brand/{brand_id}','ProdukClientController@showBrand')->name('produk.show_brand');

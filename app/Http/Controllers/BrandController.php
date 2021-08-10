@@ -46,6 +46,7 @@ class BrandController extends Controller
             'slug' => Str::slug($request->nama, '-')
         ]);
 
+        alert()->success('Berhasil Menambah Brand','Sukses');
         return redirect()->route('brand.index')->with('sukses', 'Data Brand Berhasil Ditambahkan');
     }
 
@@ -88,6 +89,7 @@ class BrandController extends Controller
         $brand = Brand::find($id);
         $brand->update($request->all());
 
+        alert()->success('Berhasil Mengupdate Brand','Sukses');
         return redirect()->route('brand.index')->with('sukses', 'Data Brand Berhasil Update');
     }
 
@@ -102,6 +104,8 @@ class BrandController extends Controller
         $brand = Brand::find($id);
 
         $brand->delete();
+
+        alert()->success('Berhasil Hapus Brand','Sukses');
         return redirect()->route('brand.index')->with('sukses','Data Brand Berhasil Dihapus');
     }
 }

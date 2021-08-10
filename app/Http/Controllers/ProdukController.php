@@ -9,6 +9,7 @@ use App\Models\Lokasi;
 use App\User;
 use File;
 use Auth;
+use Alert;
 
 class ProdukController extends Controller
 {
@@ -19,7 +20,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produk = Produk::paginate(10);
+        $produk = Produk::latest()->paginate(10);
         $brand = Brand::all();
 
         return view('admin.produk.index',compact('produk','brand'));
@@ -72,8 +73,9 @@ class ProdukController extends Controller
             'lokasi_id' => $request->lokasi_id,
             'foto_produk' => $nama_foto
         ]);
-
-        return redirect()->route('produk.index')->with('sukses', 'Data Produk Berhasil Ditambahkan');
+        
+        alert()->success('Berhasil Menambahkan Produk','Sukses');
+        return redirect()->route('produk.index')->with('success','berhasil');
     }
 
     /**
@@ -132,7 +134,9 @@ class ProdukController extends Controller
             $produk->foto_produk = $nama_foto;
             $produk->update();            
         }
-        return redirect()->route('produk.index')->with('sukses', 'Data Produk Berhasil Update');
+
+        alert()->success('Berhasil Mengupdate Produk','Sukses');
+        return redirect()->route('produk.index');
     }
 
     /**
@@ -147,6 +151,8 @@ class ProdukController extends Controller
         File::delete('img/produk/'.$produk->foto_produk);
         
         $produk->delete();
-        return redirect()->route('produk.index')->with('sukses','Data Produk Berhasil Dihapus');
+        
+        alert()->success('Berhasil Hapus Produk','Sukses');
+        return redirect()->route('produk.index');
     }
 }

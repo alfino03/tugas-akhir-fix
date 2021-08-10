@@ -15,7 +15,7 @@
         </div>
         <div class="button-section">
           <button type="submit" class="btn btn-warning">Submit</button>
-          <a href="{{ route('lokasi.create') }}" class="btn btn-secondary">Kembali</a>
+          <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
         </div>
     </form>
   </div>

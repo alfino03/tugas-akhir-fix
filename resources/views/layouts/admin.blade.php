@@ -14,6 +14,9 @@
 
   <!-- css custom --> 
   <link rel="stylesheet" href="/layout-template/css/custom-tampilan.css">
+
+  <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -165,5 +168,8 @@
 <script src="/adminlte/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/js/demo.js"></script>
+<!-- Alert -->
+
+@include('sweet::alert')
 </body>
 </html>

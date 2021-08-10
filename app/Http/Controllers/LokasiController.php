@@ -15,7 +15,7 @@ class LokasiController extends Controller
      */
     public function index()
     {
-        $lokasi = Lokasi::paginate(10);
+        $lokasi = Lokasi::latest()->paginate(10);
         return view('admin.lokasi.lokasi',compact('lokasi'));
     }
 
@@ -46,6 +46,7 @@ class LokasiController extends Controller
             'slug' => Str::slug($request->nama_lokasi, '-')
         ]);
 
+        alert()->success('Berhasil Menambahkan Lokasi','Sukses');
         return redirect()->route('lokasi.index')->with('sukses', 'Data Brand Berhasil Ditambahkan');
     }
 
@@ -94,6 +95,8 @@ class LokasiController extends Controller
         $lokasi = Lokasi::find($id);
 
         $lokasi->delete();
+
+        alert()->success('Berhasil Hapus Lokasi','Sukses');
         return redirect()->route('lokasi.index')->with('sukses','Data Brand Berhasil Dihapus');
     }
 }

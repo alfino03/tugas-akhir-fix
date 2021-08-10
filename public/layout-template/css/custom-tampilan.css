@@ -140,7 +140,7 @@
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(243, 17, 17, 0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
@@ -173,4 +173,23 @@
 
 .content-wrapper {
     background-color: #ffffff;
+}
+
+.btn-color-custom {
+	background-color: #ebb513;
+	border-color: #ebb513;
+}
+
+/* profilee */
+.profile{
+	border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-edit{
+	color: black;
 }

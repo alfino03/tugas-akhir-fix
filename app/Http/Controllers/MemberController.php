@@ -14,7 +14,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $users= User::paginate(10);
+        $users= User::latest()->paginate(10);
         return view('admin.member',compact('users'));
     }
 
@@ -23,6 +23,8 @@ class MemberController extends Controller
         $users = User::find($id);
 
         $users->delete();
+
+        alert()->success('Berhasil Hapus Member','Sukses');
         return redirect()->route('member.index')->with('sukses','Data Brand Berhasil Dihapus');
     }
 

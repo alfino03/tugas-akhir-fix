@@ -82,34 +82,33 @@
         <ul class="navbar-nav ml-auto">
           <!-- Authentication Links -->
           @guest
-          <a class="nav-item nav-link btn btn-warning mr-2" data-toggle="modal" data-target="#loginModal">
-            {{ __('Login') }}
-          </a>
-          <!-- <a class="nav-item nav-link btn btn-warning mr-3" href="{{ route('login') }}">{{ __('Login') }}</a> -->
-          @if (Route::has('register'))
-
-          <a class="nav-item nav-link btn btn-warning" href="{{ route('register') }}">{{ __('Register') }}</a>
-
-          @endif
-          @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
+            <a class="nav-item nav-link btn btn-warning mr-2" data-toggle="modal" data-target="#loginModal">
+              {{ __('Login') }}
             </a>
+            @if (Route::has('register'))
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="nav-item nav-link btn btn-warning" href="{{ route('register') }}">{{ __('Register') }}</a>
 
-
-              <a class="btn btn-xs btn-danger mt-3 w-100" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+            @endif
+          @else
+            <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
               </a>
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </div>
-          </li>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="btn btn-xs btn-secondary mb-1 w-100" href="/home/editprofile">
+                  {{ __('Edit Profile') }}
+                </a>
+                <a class="btn btn-xs btn-danger w-100" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
           @endguest
         </ul>
 
