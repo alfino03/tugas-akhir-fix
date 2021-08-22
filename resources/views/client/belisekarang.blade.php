@@ -1,13 +1,13 @@
 @extends('layouts.client')
 @section('konten')
 
-<section>
+<section style="margin-top: 50px;">
     <h3 class="text-center sec-title">Beli Emas</h3>
     <div class="container">
         <div class="col-md-4 m-auto">
             <a href="/produk" class="nav-item nav-link text-secondary">
             <i class="fas fa-arrow-left mr-3"></i>Kembali
-            </a> <br>
+            </a> 
             <div class="card styled-table">
                 <div class="card-body">
                     <h4 class="card-title text-center">{{$produk->brand->nama_brand}} {{$produk->nama_produk}}</h4>

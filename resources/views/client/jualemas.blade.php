@@ -1,7 +1,7 @@
 @extends('layouts.client')
 @section('konten')
 
-<section>
+<section style="margin-top: 50px;">
   <div class="form-style-10">
   <h3>Form Jual Emas</h3>
     <form action="{{ route('jualemas.store') }}" method="POST" enctype="multipart/form-data">

@@ -2,14 +2,14 @@
 @section('konten')
 
 <!-- carousel -->
-<div id="test" class="carousel slide bg-light" data-ride="carousel">
+<div id="test" class="carousel slide bg-light" data-ride="carousel" style="margin-top: 65px;">
   <ol class="carousel-indicators">
     <li data-target="#test" data-slide-to="0" class="active"></li>
     <li data-target="#test" data-slide-to="1"></li>
     <li data-target="#test" data-slide-to="2"></li>
     <li data-target="#test" data-slide-to="3"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner margintop">
     <div class="carousel-item active">
       <img class="d-block w-100" src="/layout-template/img/slides/emasbat.jpg" alt="First slide">
     </div>
@@ -108,7 +108,7 @@
     <div class="row">
       <div class="col-md-5">
         <div class="tentang-imgBox">
-          <img src="/layout-template/img/office.jpg" alt="" class="rounded">
+          <img src="/layout-template/img/aboutme.jpg" alt="" class="rounded">
         </div>
       </div>
       <div class="col-md-7">

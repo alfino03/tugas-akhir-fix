@@ -6,18 +6,13 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 
-class EditProfileController extends Controller
+class EditProfileAdminController extends Controller
 {
-    public function index()
-    {
-        // $user = Auth::user();
-        // return view ('client.editprofile', compact('user'));
-    }
 
     public function edit()
     {
         $user = Auth::user();
-        return view('client.editprofile',compact('user'));
+        return view('admin.editprofileadmin',compact('user'));
     }
 
     /**
@@ -41,7 +36,7 @@ class EditProfileController extends Controller
         $user = User::find($id);
         $user->update($request->all());
 
-        return redirect('editprofile');
+        return redirect('editprofileadmin');
     }
 
 }

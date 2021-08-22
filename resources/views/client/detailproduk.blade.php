@@ -1,12 +1,12 @@
 @extends('layouts.client')
 @section('konten')
 
-<section>
+<section style="margin-top: 50px;">
   <div class="container mt-1 ">
     <div class="col-md-10 m-auto">
       <a href="{{ url()->previous() }}" class="nav-item nav-link text-secondary">
         <i class="fas fa-arrow-left mr-3"></i>Kembali
-      </a> <br>
+      </a> 
       <div class="card styled-table">
         <div class="card-body">
           <h4 class="card-title">{{$produk->brand->nama_brand}} {{$produk->nama_produk}}</h4>

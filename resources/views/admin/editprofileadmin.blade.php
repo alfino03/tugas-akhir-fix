@@ -1,18 +1,18 @@
-@extends('layouts.client')
-@section('konten')
+@extends('layouts.admin')
+@section('content')
 
 <section>
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-8">
-            <a href="/home" class="nav-item nav-link text-secondary">
-                <i class="fas fa-arrow-left mr-3"></i>Kembali
+            <a href="/admin" class="nav-item nav-link text-secondary">
+                <i class="fas fa-arrow-left mr-3 mt-4"></i>Kembali
             </a>
               <div class="card profile">
                   <div class="card-header"><i class="fas fa-user"></i> {{ __('Profile Saya') }}</div>
 
                   <div class="card-body">
-                      <form action="{{ route('editprofile.update',$user->id) }}" method="POST">
+                      <form action="{{ route('editprofileadmin.update',$user->id) }}" method="POST">
                           @csrf
                           <div class="form-group row">
                               <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama Lengkap') }}</label>
@@ -53,7 +53,7 @@
                                 <button id="submit-btn" type="submit" class="btn btn-color-custom" disabled>
                                 {{ __('Save') }}
                                 </button>
-                                <button id="cancel-btn" type="button" onclick="window.location.href='/home'" class="btn btn-secondary" disabled>
+                                <button id="cancel-btn" type="button" onclick="window.location.href='/admin'" class="btn btn-secondary" disabled>
                                 {{ __('Cancel') }}
                                 </button>
                               </div>

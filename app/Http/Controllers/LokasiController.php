@@ -15,7 +15,7 @@ class LokasiController extends Controller
      */
     public function index()
     {
-        $lokasi = Lokasi::latest()->paginate(10);
+        $lokasi = Lokasi::paginate(10);
         return view('admin.lokasi.lokasi',compact('lokasi'));
     }
 

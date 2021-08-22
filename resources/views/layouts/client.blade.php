@@ -35,7 +35,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
       <!-- Left navbar links -->
       <a class="navbar-brand" href="/home">
@@ -68,7 +68,7 @@
               </div>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/about">About</a> 
           </li>
           @if(Auth::user())
           <li class="nav-item d-none d-sm-inline-block">
@@ -97,7 +97,7 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="btn btn-xs btn-secondary mb-1 w-100" href="/home/editprofile">
+                <a class="btn btn-xs btn-secondary mb-1 w-100" href="{{url('editprofile')}}">
                   {{ __('Edit Profile') }}
                 </a>
                 <a class="btn btn-xs btn-danger w-100" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -24,11 +24,14 @@ Route::middleware('admin','auth')->group(function() {
     Route::resource('admin/brand','BrandController');
     Route::resource('admin/member','MemberController');
     Route::resource('admin/lokasi','LokasiController');
-
+    
+    Route::get('editprofileadmin','EditProfileAdminController@edit');
+    Route::post('editprofileadmin/{id}','EditProfileAdminController@update')->name('editprofileadmin.update');
 
 });
 
-Route::get('home/editprofile','EditProfileController@index');
+Route::get('editprofile','EditProfileController@edit');
+Route::post('editprofile/{id}','EditProfileController@update')->name('editprofile.update');
 
 Route::get('/produk','ProdukClientController@client');
 Route::get('/produk/brand/{brand_id}','ProdukClientController@showBrand')->name('produk.show_brand');
