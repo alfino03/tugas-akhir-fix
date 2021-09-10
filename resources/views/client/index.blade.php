@@ -114,9 +114,10 @@
       <div class="col-md-7">
         <div class="tentang-konten">
           <h5>Tukuemas</h5>
-          <p class="sec-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem
-            eveniet, quas deleniti error qui fugit, culpa architecto distinctio consequatur voluptates.
-            Fuga, rem labore cum consequuntur illum excepturi, quis explicabo a magnam recusandae inventore!
+          <p class="sec-content" style="text-align: justify;">Tukuemas merupakan sebuah marketplace yang melayani penjualan emas berdasarkan
+            lokasi penjual, hal ini bertujuan untuk mengsinkronkan lokasi pembeli dan penjual agar memudahkan kedua
+            belah pihak untuk bertemu, mengingat marketplace tukuemas ini menerapkan sistem transaksi COD.
+            selain itu, produk emas bisa difilterkan menurut jenis brand emas yang diinginkan oleh pembeli.
           </p>
         </div>
       </div>

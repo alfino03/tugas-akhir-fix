@@ -63,7 +63,7 @@
               <a class="btn btn-warning" href="{{route('produk.beli_sekarang',$produk->id)}}"><i class="fas fa-shopping-cart"></i> Beli</a>
               
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
